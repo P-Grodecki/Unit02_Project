@@ -76,14 +76,14 @@ def balance_teams(teams, players):
         # Find a candidate player that meets the experience requirements.
         player_added = False
         find_player_counter = 0
-        while not player_added == True or find_player_counter == (len(balance_players) - 1):
+        while not player_added == True:
             selected_player = random.randint(0, len(balance_players) - 1)
             if balance_players[selected_player]['experience'] == has_experience:
                 current_roster.append(balance_players[selected_player]['id'])
                 del balance_players[selected_player]
                 player_added = True
-            else:
-                find_player_counter += 1
+            
+                
         # Increase the iteration count by 1
         iteration_counter += 1
     return team_roster    
@@ -214,5 +214,5 @@ if __name__ == '__main__':
         # Display the statistics for the selected team
         display_team_stats(the_stats)
         input('\nPress ENTER to Continue....')
-        first_loop_rebalance_teams = True
+        first_loop_rebalance_teams = False
     print("\nYou have exited the basketball stats program. Thank you.")
